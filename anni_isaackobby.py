@@ -342,8 +342,13 @@ def conditional_prob_x(P, n):
             cond_x = [prob_dist / marg_y for prob_dist in P[:, n-1]] # conditional probabilities for all x given y = n  
         p_x_y = np.array(cond_x) # convert list into np.ndarray
         return p_x_y
-    
-    
+   
+def softMax(array):
+    scores = []
+    for i in range(len(array)):
+        scores.append(np.exp(array[i]) / np.sum(np.array([np.exp(j) for j in array])))
+    return scores
+
 #####################################################
  # My Concerns
 #####################################################
